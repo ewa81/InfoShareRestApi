@@ -1,0 +1,22 @@
+{
+  "name": "infosharerestapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewa81/InfoShareRestApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ewa81/InfoShareRestApi/issues"
+  },
+  "homepage": "https://github.com/ewa81/InfoShareRestApi#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
