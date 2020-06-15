@@ -83,7 +83,7 @@ const todos = [
 ];
 
 app.get("/api/todos", (request, response) => {
-  response.send(todos)
+  response.json(todos);
 });
 
 app.listen(port, () => console.log(`App is running on localhost: ${port}`));
