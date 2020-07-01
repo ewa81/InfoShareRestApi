@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const todos = [
   {
@@ -89,13 +90,12 @@ app.get("/api/todos", (request, response) => {
 });
 
 app.post("/api/todos", (req, res) => {
-  const todo = {
+  const newTodo = {
     title: req.body.title,
     description: req.body.description
   };
-  console.log("newTodo:", todo);
-  todos.push(todo);
-  res.json(todo);
+  todos.push(newTodo);
+  res.json(newTodo);
 });
 
 app.listen(port, () => console.log(`App is running on localhost: ${port}`));
