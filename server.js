@@ -89,11 +89,13 @@ app.get("/api/todos", (request, response) => {
 });
 
 app.post("/api/todos", (req, res) => {
-  console.log(req.body);
-  res.json({
+  const todo = {
     title: req.body.title,
     description: req.body.description
-  });
+  };
+  console.log("newTodo:", todo);
+  todos.push(todo);
+  res.json(todo);
 });
 
 app.listen(port, () => console.log(`App is running on localhost: ${port}`));
