@@ -91,8 +91,11 @@ app.get("/api/todos", (request, response) => {
 
 app.post("/api/todos", (req, res) => {
   const newTodo = {
+    id: req.body.id,
     title: req.body.title,
-    description: req.body.description
+    description: req.body.description,
+    status: req.body.status,
+    createdAt: req.body.createdAt
   };
   todos.push(newTodo);
   res.json(newTodo);
