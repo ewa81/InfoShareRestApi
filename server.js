@@ -108,17 +108,34 @@ app.put("/api/todos/:id", (req, res) => {
     return todo.id == findId;
   });
 
-  res.json(todo);
+  res.json({
+    id: req.params.id,
+    title: req.body.title,
+    description: req.body.description,
+    status: req.body.status,
+    createdAt: req.body.createdAt
+  });
 });
 
 app.delete("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
 
+  const deleteTodo = {
+    id: req.params.id,
+    title: req.body.title,
+    description: req.body.description,
+    status: req.body.status,
+    createdAt: req.body.createdAt
+  };
+
   const todo = todos.filter(todo => {
     return todo.id == findId;
   });
 
-  res.json({ message: `Successfully removed task with id: ${findId}.` });
+  res.json({
+    deleteTodo,
+    message: `Successfully removed task with id: ${findId}.`
+  });
 });
 
 app.listen(port, () => console.log(`App is running on localhost: ${port}`));
