@@ -108,13 +108,16 @@ app.put("/api/todos/:id", (req, res) => {
     return todo.id == findId;
   });
 
-  res.json({
-    id: req.params.id,
-    title: req.body.title,
-    description: req.body.description,
-    status: req.body.status,
-    createdAt: req.body.createdAt
+  const index = todos.indexOf(todo);
+
+  const keys = Object.keys(req.body);
+
+  keys.forEach(key => {
+    todo[key] = req.body[key];
   });
+
+  todos[index] = todo;
+  res.json(todos[index]);
 });
 
 app.delete("/api/todos/:id", (req, res) => {
