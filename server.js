@@ -103,17 +103,10 @@ app.post("/api/todos", (req, res) => {
 
 app.put("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
+  const todo = req.body;
 
-  const todo = todos.filter(todo => {
+  const index = todos.findIndex(todo => {
     return todo.id == findId;
-  });
-
-  const index = todos.indexOf(todo);
-
-  const keys = Object.keys(req.body);
-
-  keys.forEach(key => {
-    todo[key] = req.body[key];
   });
 
   todos[index] = todo;
@@ -123,6 +116,12 @@ app.put("/api/todos/:id", (req, res) => {
 app.delete("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
 
+  const todo = todos.findIndex(todo => {
+    return todo.id == findId;
+  });
+  const index = todos.indexOf(todo);
+  todos.splice(index, 1);
+
   const deleteTodo = {
     id: req.params.id,
     title: req.body.title,
@@ -130,11 +129,6 @@ app.delete("/api/todos/:id", (req, res) => {
     status: req.body.status,
     createdAt: req.body.createdAt
   };
-
-  const todo = todos.filter(todo => {
-    return todo.id == findId;
-  });
-
   res.json({
     deleteTodo,
     message: `Successfully removed task with id: ${findId}.`
