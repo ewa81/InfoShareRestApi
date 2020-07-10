@@ -105,23 +105,19 @@ app.put("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
   const todo = req.body;
 
-  const index = todos.findIndex(todo => {
-    return todo.id == findId;
-  });
+  const todoIndex = todos.findIndex(todo => todo.id == findId);
 
-  todos[index] = todo;
-  res.json(todos[index]);
+  todos[todoIndex] = todo;
+  res.json(todos[todoIndex]);
 });
 
 app.delete("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
   const todo = req.body;
 
-  const index = todos.findIndex(todo => {
-    return todo.id == findId;
-  });
+  const todoIndex = todos.findIndex(todo => todo.id == findId);
 
-  todos.splice(index, 1);
+  todos.splice(todoIndex, 1);
   res.sendStatus(200);
 
   res.json({
