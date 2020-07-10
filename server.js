@@ -85,8 +85,8 @@ const todos = [
   }
 ];
 
-app.get("/api/todos", (request, response) => {
-  response.json(todos);
+app.get("/api/todos", (req, res) => {
+  res.json(todos);
 });
 
 app.post("/api/todos", (req, res) => {
@@ -107,18 +107,16 @@ app.put("/api/todos/:id", (req, res) => {
 
   const todoIndex = todos.findIndex(todo => todo.id == findId);
 
-  todos[todoIndex] = todo;
+  todos[todoIndex] = req.body;
   res.json(todos[todoIndex]);
 });
 
 app.delete("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
-  const todo = req.body;
 
   const todoIndex = todos.findIndex(todo => todo.id == findId);
 
   todos.splice(todoIndex, 1);
-  res.sendStatus(200);
 
   res.json({
     message: `Successfully removed task with id: ${findId}.`
