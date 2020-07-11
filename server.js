@@ -85,8 +85,8 @@ const todos = [
   }
 ];
 
-app.get("/api/todos", (request, response) => {
-  response.json(todos);
+app.get("/api/todos", (req, res) => {
+  res.json(todos);
 });
 
 app.post("/api/todos", (req, res) => {
@@ -99,6 +99,27 @@ app.post("/api/todos", (req, res) => {
   };
   todos.push(newTodo);
   res.json(newTodo);
+});
+
+app.put("/api/todos/:id", (req, res) => {
+  const findId = req.params.id;
+
+  const todoIndex = todos.findIndex(todo => todo.id == findId);
+
+  todos[todoIndex] = req.body;
+  res.json(todos[todoIndex]);
+});
+
+app.delete("/api/todos/:id", (req, res) => {
+  const findId = req.params.id;
+
+  const todoIndex = todos.findIndex(todo => todo.id == findId);
+
+  todos.splice(todoIndex, 1);
+
+  res.json({
+    message: `Successfully removed task with id: ${findId}.`
+  });
 });
 
 app.listen(port, () => console.log(`App is running on localhost: ${port}`));
