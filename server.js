@@ -103,7 +103,6 @@ app.post("/api/todos", (req, res) => {
 
 app.put("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
-  const todo = req.body;
 
   const todoIndex = todos.findIndex(todo => todo.id == findId);
 
