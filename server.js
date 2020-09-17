@@ -1,7 +1,21 @@
+require('dotenv').config()
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 3000;
+const mongoose = require('mongoose');
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection
+db.on('error', (error) => console.log())
+db.once('open', () => console.log('connected to database'));
+
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -122,4 +136,4 @@ app.delete("/api/todos/:id", (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`App is running on localhost: ${port}`));
+app.listen(PORT, () => console.log(`App is running on localhost: ${PORT}`));
