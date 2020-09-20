@@ -1,20 +1,22 @@
 const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({
-  id: {
+  todos_title: {
     type: String
   },
-  title: {
+  todos_description: {
     type: String
   },
-  description: {
-    type: String
-  },
-  status: {
+  todos_status: {
     type: Boolean
   },
-  createdAt: {
-    type: Date
+  todos_createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  todos_updatedAt: {
+    type: Date,
+    default: null
   }
 });
 

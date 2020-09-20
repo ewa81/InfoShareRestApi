@@ -4,15 +4,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require('mongoose');
-
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-const db = mongoose.connection
-db.on('error', (error) => console.log())
-db.once('open', () => console.log('connected to database'));
+const connect = require('./db/connect');
 
 app.use(express.json());
+
+const todoRouter = require('./routes/todo');
+app.use('/todo', todoRouter);
 
 const PORT = process.env.PORT || 3000;
 
