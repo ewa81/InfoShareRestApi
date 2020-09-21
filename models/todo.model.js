@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({
-  todos_title: {
+  todo_title: {
     type: String
   },
-  todos_description: {
+  todo_description: {
     type: String
   },
-  todos_status: {
+  todo_status: {
     type: Boolean
   },
   createdAt: {

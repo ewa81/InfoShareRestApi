@@ -11,7 +11,7 @@ app.use(express.json());
 
 connectDB();
 const todoRouter = require('./routes/todo');
-app.use('/todo', todoRouter);
+app.use('/api/todo', todoRouter);
 
 const PORT = process.env.PORT || 3000;
 
@@ -100,18 +100,6 @@ const todos = [
 
 app.get("/api/todos", (req, res) => {
   res.json(todos);
-});
-
-app.post("/api/todos", (req, res) => {
-  const newTodo = {
-    id: req.body.id,
-    title: req.body.title,
-    description: req.body.description,
-    status: req.body.status,
-    createdAt: req.body.createdAt
-  };
-  todos.push(newTodo);
-  res.json(newTodo);
 });
 
 app.put("/api/todos/:id", (req, res) => {
