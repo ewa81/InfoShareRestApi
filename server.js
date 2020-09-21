@@ -5,9 +5,11 @@ const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require('mongoose');
 const connect = require('./db/connect');
+const connectDB = require('./db/connect');
 
 app.use(express.json());
 
+connectDB();
 const todoRouter = require('./routes/todo');
 app.use('/todo', todoRouter);
 

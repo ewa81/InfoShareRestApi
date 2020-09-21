@@ -5,7 +5,8 @@ const Todo = require('../models/todo.model');
 
 router.post('/', async(req, res) => {
   const newTodo = new Todo(req.body);
-  newTodo.save();
+  await newTodo.save();
+  res.json(newTodo);
 });
 
 module.exports = router;

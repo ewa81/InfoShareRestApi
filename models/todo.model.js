@@ -10,11 +10,11 @@ const todoSchema = mongoose.Schema({
   todos_status: {
     type: Boolean
   },
-  todos_createdAt: {
+  createdAt: {
     type: Date,
-    default: Date.now
+    default: new Date().toISOString()
   },
-  todos_updatedAt: {
+  updatedAt: {
     type: Date,
     default: null
   }
