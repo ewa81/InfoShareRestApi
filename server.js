@@ -14,7 +14,7 @@ app.use(express.json());
 const todoRouter = require('./routes/todo');
 app.use('/api', todoRouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
