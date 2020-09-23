@@ -8,7 +8,7 @@ const todoSchema = mongoose.Schema({
     type: String
   },
   todo_status: {
-    type: Boolean
+    type: String
   },
   createdAt: {
     type: Date,

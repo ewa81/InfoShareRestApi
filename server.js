@@ -10,8 +10,9 @@ const connectDB = require('./db/connect');
 app.use(express.json());
 
 connectDB();
+app.use(express.json());
 const todoRouter = require('./routes/todo');
-app.use('/api/todo', todoRouter);
+app.use('/api', todoRouter);
 
 const PORT = process.env.PORT || 3000;
 
