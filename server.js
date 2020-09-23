@@ -1,7 +1,21 @@
+require('dotenv').config()
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 3000;
+const mongoose = require('mongoose');
+const connect = require('./db/connect');
+const connectDB = require('./db/connect');
+
+app.use(express.json());
+
+connectDB();
+app.use(express.json());
+const todoRouter = require('./routes/todo');
+app.use('/api', todoRouter);
+
+const PORT = process.env.PORT || 8080;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -89,18 +103,6 @@ app.get("/api/todos", (req, res) => {
   res.json(todos);
 });
 
-app.post("/api/todos", (req, res) => {
-  const newTodo = {
-    id: req.body.id,
-    title: req.body.title,
-    description: req.body.description,
-    status: req.body.status,
-    createdAt: req.body.createdAt
-  };
-  todos.push(newTodo);
-  res.json(newTodo);
-});
-
 app.put("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
 
@@ -122,4 +124,4 @@ app.delete("/api/todos/:id", (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`App is running on localhost: ${port}`));
+app.listen(PORT, () => console.log(`App is running on localhost: ${PORT}`));
