@@ -6,7 +6,6 @@ const app = express();
 const mongoose = require('mongoose');
 const connect = require('./db/connect');
 const connectDB = require('./db/connect');
-const todos = require('./mocks/todos.json');
 
 app.use(express.json());
 
