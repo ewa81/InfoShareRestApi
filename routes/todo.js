@@ -3,7 +3,7 @@ const router = express.Router();
 const Todo = require('../models/todo.model');
 const todos = require('../mocks/todos.json');
 
-router.post('/todos/all', async(req, res) => {
+router.post('/todos', async(req, res) => {
   const newTodo = new Todo(req.body);
 
   try {
@@ -12,6 +12,9 @@ router.post('/todos/all', async(req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+router.post('/all', async(req, res) => {
   const todo = await Todo.insertMany(todos);
   console.log(await Todo.find());
 });
