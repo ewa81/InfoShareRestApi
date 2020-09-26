@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Todo = require('../models/todo.model');
-const todos = require('../mocks/todos.json');
 
 router.post('/todos', async(req, res) => {
   const newTodo = new Todo(req.body);
@@ -16,7 +15,7 @@ router.post('/todos', async(req, res) => {
 
 router.post('/all', async(req, res) => {
   const todo = await Todo.insertMany(todos);
-  console.log(await Todo.find());
+  res.json({ message: "Successfully added all todos" });
 });
 
 module.exports = router;
