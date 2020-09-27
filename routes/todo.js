@@ -14,7 +14,7 @@ router.post('/todos', async(req, res) => {
   }
 });
 
-router.post('/all', async(req, res) => {
+router.post('/todos/all', async(req, res) => {
   await Todo.insertMany(todos);
   res.json({ message: "Successfully added all todos" });
 });
