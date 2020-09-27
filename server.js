@@ -19,10 +19,6 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/api/todos", (req, res) => {
-  res.json(todos);
-});
-
 app.put("/api/todos/:id", (req, res) => {
   const findId = req.params.id;
 
