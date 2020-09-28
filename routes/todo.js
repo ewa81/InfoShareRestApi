@@ -3,6 +3,11 @@ const router = express.Router();
 const Todo = require('../models/todo.model');
 const todos = require('../mocks/todos.json');
 
+router.get('/todos', async(req, res) => {
+  await Todo.find();
+  res.json(todos);
+});
+
 router.post('/todos', async(req, res) => {
   const newTodo = new Todo(req.body);
 
