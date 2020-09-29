@@ -24,4 +24,19 @@ router.post('/todos/all', async(req, res) => {
   res.json({ message: "Successfully added all todos" });
 });
 
+router.delete('/todos/:id', async(req, res) =>{
+  const removeTodo = await Todo.deleteOne({ id: req.params.id });
+  res.json(removeTodo);
+});
+
+router.put('/todos/:id', async(req, res) => {
+  try {
+    const updateTodo = await Todo.updateOne({ id: req.params.id });
+    updateTodo.set(req.body);
+    res.json(updateTodo);
+  } catch(error) {
+    res.json({message: error});
+  };
+});
+
 module.exports = router;
