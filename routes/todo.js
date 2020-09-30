@@ -25,18 +25,31 @@ router.post('/todos/all', async(req, res) => {
 });
 
 router.delete('/todos/:id', async(req, res) =>{
-  const removeTodo = await Todo.deleteOne({ id: req.params.id });
-  res.json(removeTodo);
+  try {
+    const removeTodo = await Todo.deleteOne({ _id: req.params.id });
+
+    if (removeTodo == null) {
+      res.json({message: "Looking for Todo doesn't exist in the database"});
+    } else {
+      res.json({message: 'Todo deleted'});
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.put('/todos/:id', async(req, res) => {
   try {
-    const updateTodo = await Todo.updateOne({ id: req.params.id });
-    updateTodo.set(req.body);
-    res.json(updateTodo);
+    const updateTodo = await Todo.updateOne({ id: req.params.id }, req.body);
+
+    if (updateTodo == null) {
+      res.json({message: "Looking for Todo doesn't exist in the database"});
+    } else {
+      res.json({message: 'Todo update'});
+    }
   } catch(error) {
-    res.json({message: error});
-  };
+    console.log(error);
+  }
 });
 
 module.exports = router;
