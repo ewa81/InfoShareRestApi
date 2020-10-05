@@ -26,12 +26,11 @@ router.post('/todos/all', async(req, res) => {
 
 router.delete('/todos/:id', async(req, res) =>{
   try {
-    const removeTodo = await Todo.findOne({ _id: req.params.id });
-
-    if (removeTodo == null) {
-      res.json({message: "Looking for Todo doesn't exist in the database"});
+    const todo = await Todo.findOne({ _id: req.params.id });
+      if (!todo) {
+      res.json({message: "Request todo doesn't exist in database"});
     } else {
-      await removeTodo.deleteOne();
+      await todo.deleteOne();
       res.json({message: 'Todo deleted'});
     }
   } catch (error) {
@@ -41,12 +40,11 @@ router.delete('/todos/:id', async(req, res) =>{
 
 router.put('/todos/:id', async(req, res) => {
   try {
-    const updateTodo = await Todo.findOne({ id: req.params.id }, req.body);
-
-    if (updateTodo == null) {
-      res.json({message: "Looking for Todo doesn't exist in the database"});
+    const todo = await Todo.findOne({ id: req.params.title });
+      if (!todo) {
+      res.json({message: "Request todo doesn't exist in database"});
     } else {
-      await updateTodo.updateOne();
+      await todo.updateOne();
       res.json({message: 'Todo update'});
     }
   } catch(error) {
