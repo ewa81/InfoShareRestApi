@@ -5,8 +5,8 @@ const todos = require('../mocks/todos.json');
 
 router.get('/todos', async(req, res) => {
   try {
-    const todo = await Todo.find(req.body);
-    res.json(todo);
+    const todos = await Todo.find(req.body);
+    res.json(todos);
   } catch (error) {
     console.log(error);
   }
