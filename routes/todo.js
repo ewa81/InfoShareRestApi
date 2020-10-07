@@ -31,7 +31,7 @@ router.delete('/todos/:id', async(req, res) =>{
       res.json({message: "Requested todo doesn't exist in database"});
     } else {
       await Todo.deleteOne();
-      res.json({message: 'Todo deleted'});
+      res.json({message: 'Todo has been successfully removed'});
     }
   } catch (error) {
     console.log(error);
