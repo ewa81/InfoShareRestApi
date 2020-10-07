@@ -4,8 +4,12 @@ const Todo = require('../models/todo.model');
 const todos = require('../mocks/todos.json');
 
 router.get('/todos', async(req, res) => {
-  await Todo.find();
-  res.json(todos);
+  try {
+    const todo = await Todo.find(req.body);
+    res.json(todo);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.post('/todos', async(req, res) => {
