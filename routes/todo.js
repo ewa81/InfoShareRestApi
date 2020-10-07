@@ -4,8 +4,12 @@ const Todo = require('../models/todo.model');
 const todos = require('../mocks/todos.json');
 
 router.get('/todos', async(req, res) => {
-  await Todo.find();
-  res.json(todos);
+  try {
+    const todos = await Todo.find(req.body);
+    res.json(todos);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.post('/todos', async(req, res) => {
@@ -22,6 +26,34 @@ router.post('/todos', async(req, res) => {
 router.post('/todos/all', async(req, res) => {
   await Todo.insertMany(todos);
   res.json({ message: "Successfully added all todos" });
+});
+
+router.delete('/todos/:id', async(req, res) =>{
+  try {
+    const todo = await Todo.findOne({ _id: req.params.id });
+    if (!todo) {
+      res.json({message: "Requested todo doesn't exist in database"});
+    } else {
+      await Todo.deleteOne();
+      res.json({message: 'Todo has been successfully removed'});
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.put('/todos/:id', async(req, res) => {
+  try {
+    const todo = await Todo.findOne({ id: req.params.title });
+    if (!todo) {
+      res.json({message: "Requested todo doesn't exist in database"});
+    } else {
+      await Todo.updateOne({ _id: req.params.id}, req.body);
+      res.json({message: 'Todo has been successfully updated'});
+    }
+  } catch(error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
