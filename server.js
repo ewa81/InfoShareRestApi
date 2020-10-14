@@ -6,6 +6,18 @@ const app = express();
 const mongoose = require('mongoose');
 const connect = require('./db/connect');
 const connectDB = require('./db/connect');
+const cors = require('cors');
+
+app.use(cors());
+
+app.get('/api/todos', cors(), (req, res) => {
+  res.json({message: "Received todos from server"});
+});
+
+app.use(function(req, res) {
+  res.header("Access-Control-Allow-Origin: http://www.example.com");
+  res.header("Access-Control-Allow-Headers", "Origin, Requested-Widt, Content-Type, Accept");
+});
 
 app.use(express.json());
 
