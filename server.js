@@ -6,6 +6,9 @@ const app = express();
 const mongoose = require('mongoose');
 const connect = require('./db/connect');
 const connectDB = require('./db/connect');
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json());
 
