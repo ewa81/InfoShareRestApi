@@ -1,88 +1,88 @@
 [
   {
     "id": 0,
-    "title": "Zrozumieć zadanie",
-    "description": "Przeczytać opis zadania i go zrozumieć",
-    "status": "DONE",
+    "todo_title": "Zrozumieć zadanie",
+    "todo_description": "Przeczytać opis zadania i go zrozumieć",
+    "todo_status": "DONE",
     "createdAt": "2016-04-26T09:00:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 1,
-    "title": "Dostęp do API",
-    "description": "Uzyskać dostęp do API i zrozumieć strukturę danych",
-    "status": "IN_PROGRESS",
+    "todo_title": "Dostęp do API",
+    "todo_description": "Uzyskać dostęp do API i zrozumieć strukturę danych",
+    "todo_status": "IN_PROGRESS",
     "createdAt": "2016-04-26T09:01:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 2,
-    "title": "Lista zadań",
-    "description":
+    "todo_title": "Lista zadań",
+    "todo_description":
       "Wyświetlanie listy zadań ze stronicowaniem (max 5ele mentów na stronie) posortowanych od najstarszych",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:02:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 3,
-    "title": "Usuwanie",
-    "description":
+    "todo_title": "Usuwanie",
+    "todo_description":
       "Usuwanie z listy wielu zadań na raz z dodatkowym okienkiem potwierdzającym",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:03:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 4,
-    "title": "Edycja",
-    "description":
+    "todo_title": "Edycja",
+    "todo_description":
       "Edytowanie szczegółów zadania (tytuł, opis, todo_status [czekające, realizowane, gotowe]) z możliwością zmiany statusów tylko w przód (czekające -> realizowane, realizowane -> gotowe)",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:04:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 5,
-    "title": "Liczniki",
-    "description":
+    "todo_title": "Liczniki",
+    "todo_description":
       "Obok listy dodać liczniki zadań w poszczególnych statusach (wszystkich, nie tylko z wyświetlanej strony)",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:05:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 6,
-    "title": "Kolory statusów",
-    "description": "Rozróżnianie kolorami zadań w poszczególnych statusach",
-    "status": "TODO",
+    "todo_title": "Kolory statusów",
+    "todo_description": "Rozróżnianie kolorami zadań w poszczególnych statusach",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:06:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 7,
-    "title": "Filtrowanie po statusach",
-    "description":
+    "todo_title": "Filtrowanie po statusach",
+    "todo_description":
       "Ograniczanie widoku tylko do wybranych statusów (jednego bądź wielu)",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:07:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 8,
-    "title": "Statystyki dzienne",
-    "description":
+    "todo_title": "Statystyki dzienne",
+    "todo_description":
       "Zliczanie ile maksymalnie zadań było w tym samym czasie realizowanych w danym dniu",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:08:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   },
   {
     "id": 9,
-    "title": "Zaniedbane zadania",
-    "description":
+    "todo_title": "Zaniedbane zadania",
+    "todo_description":
       "Wyróżnianie zadań, które są realizowane dłużej niż 3 dni bądź czekają na realizację dłużej niż 5 dni (oba parametry niezależnie konfigurowalne i zapisywane w ciasteczku)",
-    "status": "TODO",
+    "todo_status": "TODO",
     "createdAt": "2016-04-26T09:09:00+0200",
     "updatedAt": "2020-09-25T09:00:00+0200"
   }
