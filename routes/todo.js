@@ -13,8 +13,8 @@ router.get('/todos', async(req, res) => {
 });
 
 router.get('/todos/:id', async (req, res) => {
-  const todoId = await Todo.findOne({_id: req.params.id});
-  res.json(todoId);
+  const todo = await Todo.findOne({_id: req.params.id});
+  res.json(todo);
 })
 
 router.post('/todos', async(req, res) => {
