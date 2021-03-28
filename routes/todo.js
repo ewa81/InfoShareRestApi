@@ -61,4 +61,9 @@ router.put('/todos/:id', async(req, res) => {
   }
 });
 
+router.delete('/todos/many/:todosList', async (req, res) => {
+  console.log(req.params.todosList);
+  res.send({type: 'todosList'});
+});
+
 module.exports = router;
