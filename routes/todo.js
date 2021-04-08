@@ -62,7 +62,8 @@ router.put('/todos/:id', async(req, res) => {
 });
 
 router.delete('/todos/many/:todosList', async (req, res) => {
-  console.log(req.params.todosList);
+  const { todosList } = req.params;
+  const todosArray = todosList.split(',').map(Number);
 });
 
 module.exports = router;
