@@ -64,7 +64,6 @@ router.put('/todos/:id', async(req, res) => {
 router.delete('/todos/many/:todosList', async (req, res) => {
   const { todosList } = req.params;
   const todosArray = todosList.split(',');
-  console.log(todosArray);
 
   try {
     await Todo.deleteMany({_id: todosArray});
